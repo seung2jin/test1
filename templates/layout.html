@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<title>{% block title %}Welcome{% endblock %} | MiniTwit</title>>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css')}}">
+<div class=page>
+    <h1></h1>
+    <div class=navigation>
+        {% if g.user %}
+
+            <a href="{{ url_for('sessions') }}">이동</a>
+        {% else %}
+               <table border="1">
+<colgroup>
+	<col width="150"/>
+	<col width="150"/>
+	<col width="150"/>
+</colgroup>
+        <caption>
+            <strong></strong>
+            </caption>
+        <tr>
+            <th>과목명</th>
+            <th>담당교원</th>
+            <th><u>메모장<u></th>
+        </tr>
+        <tr>
+            <td>머신러닝</td>
+            <td>이종태 교수님</td>
+            <td><a href="{{ url_for('sessions2') }}">이동</a>  </td>
+        </tr>
+        <tr>
+            <td>정보시스템 통합 및 실습</td>
+            <td>간자르 교수님</td>
+            <td><a href="{{ url_for('sessions2') }}">이동</a>  </td>
+        </tr>
+        <tr>
+            <td>산업AI</td>
+            <td>우딘교수님</td>
+            <td><a href="{{ url_for('sessions2') }}">이동</a>  </td>
+        </tr>
+        <tr>
+            <th>기능</th>
+
+
+        <tr>
+            <td>계산기</td>
+            <td><a href="{{ url_for('sessions') }}">이동</a></td>
+
+
+           </table>
+
+
+
+        {% endif %}
+    </div>
+    {% with flashes = get_flashed_messages() %}
+        {% if flashes %}
+            <ul class=flashes>
+                {% for message in flashes %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class=body>
+        {% block body %}{% endblock %}
+    </div>
+    <div class=footer>
+        MiniTwit - A Flask Application
+    </div>
+</div>

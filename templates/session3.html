@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}
+ML
+{% endblock %}
+{% block body %}
+<form method="POST" action="/save">
+
+
+</form>
+<div>
+    <table border="1">
+<colgroup>
+	<col width="200"/>
+	<col width="400"/>
+
+</colgroup>
+        <caption>
+            <strong></strong>
+            </caption>
+        <tr>
+            <th>과목명</th>
+            <th>[해당 과목명]</th>
+        </tr>
+             </table>
+<table border="1">
+<colgroup>
+	<col width="600"/>
+
+
+</colgroup>
+        <caption>
+            <strong></strong>
+            </caption>
+        <tr>
+            <td><p>
+        {% if num == None %}
+            <h5> </h5>
+            {% else %}
+                {% if cal == 'save' %}
+                <p>{{num}}</br></p>
+                <h5>  </h5>
+            {% endif %}
+
+        {% endif %}
+    </p><input type="text" name="num">
+
+
+        </tr>
+             </table>
+<button type="submit" name="save">save</button></td>
+</div>
+{% endblock %}
